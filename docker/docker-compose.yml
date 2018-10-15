@@ -1,0 +1,14 @@
+version: '2'
+services:
+  mysql:
+    build: ./mysql
+    image: play-bff-mysql:latest
+    container_name: play-bff-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/work
+      - ./mysql/db:/var/lib/mysql
+      - ./mysql/log:/var/log/mysql
+    environment:
+      ENVIRONMENT: "local"
