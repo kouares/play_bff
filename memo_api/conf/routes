@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+# An example controller showing a sample home page
+GET     /                           controllers.HomeController.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+# Alive check uri
+GET     /alive                      controllers.HomeController.index
+
+# Memo API
+GET     /memo                       controllers.MemoController.get(mainText: Option[String])
+POST    /memo                       controllers.MemoController.post
+PUT     /memo/:id                   controllers.MemoController.put(id: Int)
+DELETE  /memo/:id                   controllers.MemoController.delete(id: Int)
+
